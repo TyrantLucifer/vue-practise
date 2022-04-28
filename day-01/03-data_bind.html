@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>data_bind ==> 数据绑定</title>
+</head>
+<body>
+    <div id="root">
+        <h1>单向数据绑定</h1>
+        <input type="text" :value="name">
+        <h1>双向数据绑定</h1>
+        <input type="text" v-model:value="name">
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                // v-model双向绑定数据，会影响vue实例里的data值
+                // v-model的简写方法为 v-model="xxxx"，因为它默认收集的就是value值
+                // <input type="text" v-model:value="name"> ==> <input type="text" v-model="name">
+                name: 'tyrantlucifer'
+            }
+        })
+    </script>
+</body>
+</html>

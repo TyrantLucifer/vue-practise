@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model_grammer</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+    <h1>差值语法</h1>
+    <h2>你好，{{ name }}</h2>
+    <h1>指令语法</h1>
+    <a v-bind:href="url">这是一个url</a>
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                name: "tyrantlucifer",
+                // v-bind:就会将标签值当做表达式去执行, v-bind === :
+                // <a v-bind:href="url">这是一个url</a>
+                // <a v-bind:href="url">这是一个url</a>
+                url: "https://www.tyrantlucifer.com"
+            }
+        })
+    </script>
+</body>
+</html>

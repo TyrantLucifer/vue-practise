@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data_proxy ==> 数据代理</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+    <script type="text/javascript">
+        let number = 26
+        let person = {
+            name: 'tyrantlucifer',
+            set: '男'
+        }
+        
+        // 非常灵活的调整对象中的属性
+        Object.defineProperty(person, 'age', {
+            value: 26, // 属性值
+            enumerable: true, // 属性是否可被枚举
+            writable: true, // 属性是否可被修改
+            configurable: true // 属性是否可被删除
+        })
+        
+        // 可以将数据绑定get set方法，实现外部变量控制对象内部变量
+        Object.defineProperty(person, 'number', {
+            get:function() {
+                return number
+            },
+            set:function(value) {
+                
+            }
+        })
+        // vue将data代理，可以改变data对象中的值
+    </script>
+</body>
+</html>
