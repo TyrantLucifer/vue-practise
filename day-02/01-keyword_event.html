@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>keyword_event ==> 键盘事件</title>
+</head>
+<body>
+    <!-- 
+        keydown: 按下键就触发事件
+        keyup: 抬起键才触发事件
+        vue中给几个键位起了别名
+            enter ==> 回车
+            delete ==> 删除
+            esc ==> 退出
+            space ==> 空格
+            tab ==> 换行
+            up ==> 上
+            down ==> 下
+            left ==> 左
+            right ==> 右
+        如果想用哪个键就直接用js的键名就好了,但是如果一个键名称由两个单词组成，vue需要将驼峰转换成全小写，单词之间还需要用-连接
+        例如：大小写切换 CapsLock
+        在vue中如果想要绑定CapsLock需要写成 @keyup.caps-lock
+
+        系统修饰键用法比较特殊：ctrl alt shift meta
+        1. 配合keyup使用，按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发
+        2. 配置keydown使用，正常触发事件
+
+        也可以使用keyCode去指定具体的按键，但是不推荐
+        Vue.config.keyCodes.自定义键名 = 键码，可以定制按键别名
+     -->
+    <div id="root">
+        <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+            },
+            methods: {
+                showInfo() {
+                    alert("hello world")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

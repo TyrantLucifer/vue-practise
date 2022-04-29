@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>calculate_properties ==> 计算属性</title>
+</head>
+<body>
+    <div id="root">
+        姓: <input type="text" v-model="firstName"><br><br>
+        名: <input type="text" v-model="lastName"><br><br>
+        普通插值形式求全名: <span>{{ firstName + '-' + lastName }}</span><br><br>
+        计算属性求全名: <span>{{ fullName }}</span><br><br>
+        计算属性简写求全名: <span>{{ fullName_2 }}</span><br><br>
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                firstName: 'tyrant',
+                lastName: 'lucifer'
+            },
+            computed: {
+                fullName: {
+                    get() {
+                        return this.firstName + '-' + this.lastName
+                    }
+                },
+                fullName_2(){
+                    return this.firstName + '-' + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+</html>
