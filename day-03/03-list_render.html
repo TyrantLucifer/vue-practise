@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>list_render ==> 列表渲染</title>
+</head>
+<body>
+    <div id="root">
+        <ul>
+            <!-- 使用v-for可以实现对数据的for循环，但是需要跟:key连用 -->
+            <li v-for="p in persons" :key="p.id">{{ p.name }} - {{ p.age }}</li>
+            <!-- 使用v-for可以实现对数据的for循环，但是需要跟:key连用，可以接收两个参数，遍历的数据以及对应的索引 -->
+            <li v-for="(item, index) in persons" :key="index">{{ item.name }} - {{ item.age }}</li>
+            <!-- vue会对v-for生成虚拟dom，然后再由虚拟dom转化为现实dom，虚拟dom必须由key来标识每一条dom
+                在渲染过程中会优先加载缓存，如果新增了一条数据，那么再次转换的时候会取之前旧的数据，这时候页面就会出现问题
+            -->
+        </ul>
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    {id: 1, name: '张三', age: 18},
+                    {id: 2, name: '李四', age: 19},
+                    {id: 3, name: '王五', age: 20},
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

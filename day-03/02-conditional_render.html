@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>conditional_render ==> 条件渲染</title>
+</head>
+<body>
+    <div id="root">
+        <!-- 使用v-show可以控制一个标签是否可见，使用的是css属性display控制 -->
+        <h1 v-show="control">{{ name }}</h1>
+        <!-- 使用v-if也可以实现v-show同样的效果，但是v-if会直接将标签渲染的时候整个注释掉 -->
+        <h1 v-if="control">{{ name }}</h1>
+        <!-- 使用template标签和v-if进行配合，可以使多个标签变成一个组 -->
+        <template v-if="control">
+            <h1 v-if="control">{{ name }}</h1>
+            <h1 v-if="control">{{ name }}</h1>
+            <h1 v-if="control">{{ name }}</h1>
+        </template>
+        <button @click="show">点我显示h1标签</button>
+    </div>
+    <script type="text/javascript">
+    const x = new Vue({
+        el: '#root',
+        data: {
+            name: 'tyrantlucifer',
+            control: true
+        },
+        methods: {
+            show() {
+                this.control = !this.control
+            }
+        }
+    })
+    </script>
+</body>
+</html>

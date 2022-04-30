@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>list_filter ==> 列表过滤</title>
+</head>
+<body>
+    <div id="root">
+        <input type="text" placeholder="输入姓名" v-model="keyword">
+        <ul>
+            <li v-for="p in filterPersons" :key="p.id">{{p.name}}-{{p.age}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    {id: 1, name: '张三', age: 18},
+                    {id: 2, name: '李四', age: 19},
+                    {id: 3, name: '王五', age: 20},
+                ],
+                keyword: ''
+            },
+            computed: {
+                filterPersons() {
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyword) !== -1
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>bind_class ==> 绑定样式</title>
+</head>
+<body>
+    <div id="root">
+        <!-- 通过数据绑定动态指定样式 -->
+        <div class="basic" :class="a"></div>
+        <!-- 通过数组指定动态样式 -->
+        <div class="basic" :class="arr"></div>
+        <!-- 通过class obj控制多个样式 -->
+        <div class="basic" :class="classObj"></div>
+        <!-- 通过class obj控制style -->
+        <div class="basic" :class="classObj" :style="styleObj"></div>
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                a: "normal",
+                arr: ["test", "test2"],
+                classObj: {
+                    test: false,
+                    test1: true
+                },
+                styleObj: {
+                    fontSize: '40px'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
