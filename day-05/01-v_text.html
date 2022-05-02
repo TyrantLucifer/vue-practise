@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>v_text ==> 解析文本</title>
+</head>
+<body>
+    <div id="root">
+        <!-- v-text指令和插值语法类似，但是它会将变量的内容覆盖至标签内部 -->
+        <h1 v-text="name"></h1>
+    </div>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#root',
+            data: {
+                name: 'tyrantlucifer'
+            }
+        })
+    </script>
+</body>
+</html>
