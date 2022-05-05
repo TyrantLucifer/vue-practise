@@ -4,7 +4,7 @@
       <div class="todo-wrap">
         <MyHeader :receive="receive"></MyHeader>
         <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"></MyList>
-        <MyFooter :todos="todos"></MyFooter>
+        <MyFooter :todos="todos" :clearDone="clearDone"></MyFooter>
       </div>
     </div>
   </div>
@@ -51,6 +51,9 @@ export default {
     //删除todo
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    clearDone() {
+      this.todos = this.todos.filter(todo => todo.done === false)
     }
   }
 }
