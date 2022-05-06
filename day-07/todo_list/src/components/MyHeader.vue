@@ -1,15 +1,20 @@
 <template>
   <div class="todo-header">
-    <input type="text" placeholder="请输入你的任务名称，按回车键确认" v-model="title" @keyup.enter="add"/>
+    <input
+      type="text"
+      placeholder="请输入你的任务名称，按回车键确认"
+      v-model="title"
+      @keyup.enter="add"
+    />
   </div>
 </template>
 
 <script>
-import {nanoid} from 'nanoid'
+import { nanoid } from 'nanoid'
 
 export default {
   name: 'MyHeader',
-  props:['receive'],
+  props: ['receive'],
   data() {
     return {
       title: ''
@@ -17,7 +22,7 @@ export default {
   },
   methods: {
     add() {
-      const todoObj = {id: nanoid(), title: this.title, done: false}
+      const todoObj = { id: nanoid(), title: this.title, done: false }
       this.receive(todoObj)
     }
   }
@@ -38,6 +43,7 @@ export default {
 .todo-header input:focus {
   outline: none;
   border-color: rgba(82, 168, 236, 0.8);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(82, 168, 236, 0.6);
 }
 </style>
