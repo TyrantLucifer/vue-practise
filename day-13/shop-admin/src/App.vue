@@ -1,6 +1,8 @@
 <template>
   <div>
     <Header></Header>
+    <!-- 增加路由占位 -->
+    <router-view></router-view>
     <Footer></Footer>
   </div>
 </template>
