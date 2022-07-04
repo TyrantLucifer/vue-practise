@@ -3,7 +3,7 @@
     <Header></Header>
     <!-- 增加路由占位 -->
     <router-view></router-view>
-    <Footer></Footer>
+    <Footer v-show="$route.meta.show"></Footer>
   </div>
 </template>
 
