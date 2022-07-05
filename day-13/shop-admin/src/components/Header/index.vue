@@ -48,6 +48,7 @@
             type="text"
             id="autocomplete"
             class="input-error input-xxlarge"
+            v-model="keyword"
           />
           <button
             class="sui-btn btn-xlarge btn-danger"
@@ -71,7 +72,7 @@ export default {
   data() {
     //这里存放数据
     return {
-
+      keyword: ''
     };
   },
   //计算属性类似于data 概念
@@ -81,7 +82,18 @@ export default {
   //方法集合
   methods: {
     goSearch() {
-      this.$router.push('/search')
+      // 路由传参
+      // 1. 字符串形式
+      // this.$router.push('/search/ + this.keyword + '?keyword=' + this.keyword')
+      // 2. 模板字符串形式
+      // this.$router.push(`/search/${this.keyword}?keyword=${this.keyword}`)
+      // 3. 对象
+      this.$router.push({
+        name: 'search',
+        params: {
+          keyword: this.keyword
+        }
+      })
     }
   },
   //生命周期- 创建完成（可以访问当前this 实例）
