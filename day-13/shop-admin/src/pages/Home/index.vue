@@ -1,14 +1,35 @@
 <template>
-  <div></div>
+  <div>
+    <TypeNav></TypeNav>
+    <ListContainer></ListContainer>
+    <Recommend></Recommend>
+    <Rank></Rank>
+    <Like></Like>
+    <Floor></Floor>
+    <Floor></Floor>
+    <Brand></Brand>
+  </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》from '《组件路径》';
-
+import ListContainer from '@/pages/Home/ListContainer';
+import Recommend from '@/pages/Home/Recommend';
+import Rank from '@/pages/Home/Rank';
+import Like from '@/pages/Home/Like';
+import Floor from '@/pages/Home/Floor';
+import Brand from '@/pages/Home/Brand';
 export default {
   //import 引入的组件需要注入到对象中才能使用
-  components: {},
+  components: {
+    ListContainer,
+    Recommend,
+    Rank,
+    Like,
+    Floor,
+    Brand
+  },
   props: {},
   data() {
     //这里存放数据
