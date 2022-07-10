@@ -2,16 +2,20 @@ import Vue from 'vue'
 import App from './App.vue'
 
 // 注册全局组件
-import TypeNav from '@/pages/Home/TypeNav';
+import TypeNav from '@/components/TypeNav';
 
 Vue.component(TypeNav.name, TypeNav)
 
 // 引入路由
 import router from '@/router';
 
+// 引入vuex
+import store from '@/store'
+
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')
