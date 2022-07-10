@@ -14,14 +14,20 @@
         <a href="###">秒杀</a>
       </nav>
       <div class="sort">
-        <div class="all-sort-list2">
+        <div
+          class="all-sort-list2"
+          @click="goSearch"
+        >
           <div
             class="item"
             v-for="item in categoryList"
             :key="item.categoryId"
           >
             <h3>
-              <a href="">{{item.categoryName}}</a>
+              <a
+                :data-categoryname="item.categoryName"
+                :data-category1id="item.categoryId"
+              >{{item.categoryName}}</a>
             </h3>
             <div class="item-list clearfix">
               <div
@@ -31,14 +37,20 @@
               >
                 <dl class="fore">
                   <dt>
-                    <a href="">{{item2.categoryName}}</a>
+                    <a
+                      :data-categoryname="item2.categoryName"
+                      :data-category2id="item2.categoryId"
+                    >{{item2.categoryName}}</a>
                   </dt>
                   <dd>
                     <em
                       v-for="item3 in item2.categoryChild"
                       :key="item3.categoryId"
                     >
-                      <a href="">{{item3.categoryName}}</a>
+                      <a
+                        :data-categoryname="item3.categoryName"
+                        :data-category3id="item3.categoryId"
+                      >{{item3.categoryName}}</a>
                     </em>
                   </dd>
                 </dl>
@@ -76,7 +88,23 @@ export default {
   watch: {},
   //方法集合
   methods: {
-
+    goSearch(event) {
+      let element = event.target;
+      let { categoryname, category1id, category2id, category3id } = element.dataset;
+      let location = { name: 'search' };
+      let query = { caetgoryName: categoryname }
+      if (categoryname) {
+        if (category1id) {
+          query.category1Id = category1id;
+        } else if (category2id) {
+          query.category2Id = category2id;
+        } else {
+          query.category3Id = category3id;
+        }
+        location.query = query;
+        this.$router.push(location);
+      }
+    }
   },
   //生命周期- 创建完成（可以访问当前this 实例）
   created() {
